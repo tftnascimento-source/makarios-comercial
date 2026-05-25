@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1779549783102,
+      "tag": "0000_aspiring_patch",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1779560770846,
+      "tag": "0001_chemical_morph",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1779574968123,
+      "tag": "0002_flaky_dexter_bennett",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1779633860660,
+      "tag": "0003_bumpy_warstar",
+      "breakpoints": true
+    }
+  ]
+}

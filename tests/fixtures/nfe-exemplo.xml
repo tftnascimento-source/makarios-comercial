@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+  <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+    <infNFe Id="NFe35260511111111000111550010000001231234567890" versao="4.00">
+      <ide>
+        <cUF>35</cUF>
+        <cNF>12345678</cNF>
+        <natOp>VENDA DE MERCADORIA</natOp>
+        <mod>55</mod>
+        <serie>1</serie>
+        <nNF>123</nNF>
+        <dhEmi>2026-05-15T10:30:00-03:00</dhEmi>
+        <tpNF>1</tpNF>
+        <idDest>1</idDest>
+        <cMunFG>3550308</cMunFG>
+        <tpImp>1</tpImp>
+        <tpEmis>1</tpEmis>
+        <cDV>0</cDV>
+        <tpAmb>2</tpAmb>
+        <finNFe>1</finNFe>
+        <indFinal>0</indFinal>
+        <indPres>0</indPres>
+        <procEmi>0</procEmi>
+        <verProc>4.0</verProc>
+      </ide>
+      <emit>
+        <CNPJ>11111111000111</CNPJ>
+        <xNome>Makários Distribuidora Ltda</xNome>
+        <xFant>MAKARIOS DIST</xFant>
+        <enderEmit>
+          <xLgr>Av. Paulista</xLgr>
+          <nro>1000</nro>
+          <xBairro>Bela Vista</xBairro>
+          <cMun>3550308</cMun>
+          <xMun>São Paulo</xMun>
+          <UF>SP</UF>
+          <CEP>01310100</CEP>
+          <cPais>1058</cPais>
+          <xPais>Brasil</xPais>
+          <fone>1133334444</fone>
+        </enderEmit>
+        <IE>111111111111</IE>
+        <CRT>3</CRT>
+      </emit>
+      <dest>
+        <CNPJ>44444444000144</CNPJ>
+        <xNome>Supermercado Alpha Ltda</xNome>
+        <enderDest>
+          <xLgr>Rua das Flores</xLgr>
+          <nro>200</nro>
+          <xBairro>Centro</xBairro>
+          <cMun>3550308</cMun>
+          <xMun>São Paulo</xMun>
+          <UF>SP</UF>
+          <CEP>01001000</CEP>
+          <cPais>1058</cPais>
+          <xPais>Brasil</xPais>
+        </enderDest>
+        <indIEDest>9</indIEDest>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>001</cProd>
+          <cEAN>7891234567890</cEAN>
+          <xProd>PRODUTO A - CAIXA 12UN</xProd>
+          <NCM>22021000</NCM>
+          <CFOP>5102</CFOP>
+          <uCom>CX</uCom>
+          <qCom>50</qCom>
+          <vUnCom>120.00</vUnCom>
+          <vProd>6000.00</vProd>
+          <cEANTrib>7891234567890</cEANTrib>
+          <uTrib>CX</uTrib>
+          <qTrib>50</qTrib>
+          <vUnTrib>120.00</vUnTrib>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <ICMS>
+            <ICMS00>
+              <orig>0</orig>
+              <CST>00</CST>
+              <modBC>3</modBC>
+              <vBC>6000.00</vBC>
+              <pICMS>12.00</pICMS>
+              <vICMS>720.00</vICMS>
+            </ICMS00>
+          </ICMS>
+        </imposto>
+      </det>
+      <det nItem="2">
+        <prod>
+          <cProd>002</cProd>
+          <cEAN>7899876543210</cEAN>
+          <xProd>PRODUTO B - FARDO 6UN</xProd>
+          <NCM>22021000</NCM>
+          <CFOP>5102</CFOP>
+          <uCom>FD</uCom>
+          <qCom>30</qCom>
+          <vUnCom>150.00</vUnCom>
+          <vProd>4500.00</vProd>
+          <cEANTrib>7899876543210</cEANTrib>
+          <uTrib>FD</uTrib>
+          <qTrib>30</qTrib>
+          <vUnTrib>150.00</vUnTrib>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <ICMS>
+            <ICMS00>
+              <orig>0</orig>
+              <CST>00</CST>
+              <modBC>3</modBC>
+              <vBC>4500.00</vBC>
+              <pICMS>12.00</pICMS>
+              <vICMS>540.00</vICMS>
+            </ICMS00>
+          </ICMS>
+        </imposto>
+      </det>
+      <total>
+        <ICMSTot>
+          <vBC>10500.00</vBC>
+          <vICMS>1260.00</vICMS>
+          <vICMSDeson>0.00</vICMSDeson>
+          <vFCP>0.00</vFCP>
+          <vBCST>0.00</vBCST>
+          <vST>0.00</vST>
+          <vFCPST>0.00</vFCPST>
+          <vFCPSTRet>0.00</vFCPSTRet>
+          <vProd>10500.00</vProd>
+          <vFrete>0.00</vFrete>
+          <vSeg>0.00</vSeg>
+          <vDesc>500.00</vDesc>
+          <vII>0.00</vII>
+          <vIPI>0.00</vIPI>
+          <vIPIDevol>0.00</vIPIDevol>
+          <vPIS>0.00</vPIS>
+          <vCOFINS>0.00</vCOFINS>
+          <vOutro>0.00</vOutro>
+          <vNF>10000.00</vNF>
+          <vTotTrib>1260.00</vTotTrib>
+        </ICMSTot>
+      </total>
+      <transp>
+        <modFrete>1</modFrete>
+      </transp>
+      <cobr>
+        <fat>
+          <nFat>123</nFat>
+          <vOrig>10000.00</vOrig>
+          <vDesc>0.00</vDesc>
+          <vLiq>10000.00</vLiq>
+        </fat>
+        <dup>
+          <nDup>001</nDup>
+          <dVenc>2026-06-15</dVenc>
+          <vDup>5000.00</vDup>
+        </dup>
+        <dup>
+          <nDup>002</nDup>
+          <dVenc>2026-07-15</dVenc>
+          <vDup>5000.00</vDup>
+        </dup>
+      </cobr>
+      <infAdic>
+        <infCpl>NF-e de exemplo para testes de importação.</infCpl>
+      </infAdic>
+    </infNFe>
+  </NFe>
+</nfeProc>

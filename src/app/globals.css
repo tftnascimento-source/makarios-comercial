@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Makários brand tokens */
+  --color-mk-gold-light: #D4A843;
+  --color-mk-gold: #B8860B;
+  --color-mk-gold-dark: #8B6508;
+  --color-mk-black: #0A0A0A;
+  --color-mk-gray-dark: #2C2C2C;
+  --color-mk-gray: #9E9E9E;
+  --color-mk-white: #F5F5F0;
+
+  /* shadcn/ui system tokens — mapped to Makários brand */
+  --color-background: #F5F5F0;
+  --color-foreground: #0A0A0A;
+  --color-card: #ffffff;
+  --color-card-foreground: #0A0A0A;
+  --color-primary: #B8860B;
+  --color-primary-foreground: #F5F5F0;
+  --color-secondary: #2C2C2C;
+  --color-secondary-foreground: #F5F5F0;
+  --color-muted: #f4f4f4;
+  --color-muted-foreground: #9E9E9E;
+  --color-accent: #B8860B;
+  --color-accent-foreground: #F5F5F0;
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #F5F5F0;
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #B8860B;
+
+  --radius: 0.5rem;
+
+  /* Typography */
+  --font-sans: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--color-ring) 50%, transparent);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

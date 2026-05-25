@@ -1,0 +1,29 @@
+# Dependencies (installed fresh inside Docker)
+node_modules
+npm-debug.log*
+
+# Build artifacts (rebuilt inside Docker)
+.next
+out
+build
+
+# Local env files — secrets must not enter the image
+.env
+.env.*
+!.env.production.example
+
+# Dev tooling
+.git
+.gitignore
+*.md
+tests
+coverage
+playwright-report
+playwright.config.ts
+vitest.config.ts
+
+# OS / editor noise
+.DS_Store
+*.pem
+.vscode
+.idea
