@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import { requireSession } from "@/lib/auth";
 import { buildWorkbook, xlsxResponse } from "@/lib/exports/excel";
