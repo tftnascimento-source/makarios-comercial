@@ -27,10 +27,10 @@ export async function createSession(
     .setExpirationTime("8h")
     .sign(SECRET);
 
-  await redis.setEx(
+  await redis.set(
     `session:${payload.sub}:${jti}`,
-    SESSION_TTL_SECONDS,
-    JSON.stringify({ ...payload, jti })
+    JSON.stringify({ ...payload, jti }),
+    { ex: SESSION_TTL_SECONDS }
   );
 
   return token;
