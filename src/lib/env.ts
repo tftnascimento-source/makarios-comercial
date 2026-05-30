@@ -11,20 +11,21 @@ const envSchema = z.object({
 });
 
 function parseEnv() {
-  // During Next.js build phase (static analysis / page data collection),
-  // environment variables are not available in the worker process.
-  // Skip validation so the build succeeds — runtime will enforce correctness.
+  // During Next.js build phase the vars aren't available in the worker — skip.
   if (process.env["NEXT_PHASE"] === "phase-production-build") {
     return process.env as unknown as z.infer<typeof envSchema>;
   }
 
   const result = envSchema.safeParse(process.env);
   if (!result.success) {
+    // Log warning but don't throw — lets the app start so /api/debug can run.
     console.error(
-      "❌ Invalid environment variables:",
-      result.error.flatten().fieldErrors
+      "❌ [env] Missing or invalid environment variables:",
+      JSON.stringify(result.error.flatten().fieldErrors)
     );
-    throw new Error("Invalid environment variables");
+    // Return raw process.env so modules can still load; runtime calls will fail
+    // gracefully rather than crashing the entire function on startup.
+    return process.env as unknown as z.infer<typeof envSchema>;
   }
   return result.data;
 }
