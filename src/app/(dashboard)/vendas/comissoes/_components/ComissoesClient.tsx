@@ -170,6 +170,7 @@ export default function ComissoesClient({
   const [metaDialog, setMetaDialog] = useState<null | { mode: "create" | "edit"; meta?: MetaVendedorRow }>(null);
   const [metaForm, setMetaForm] = useState({ vendedorId: "", periodo: currentPeriodo(), valorMeta: "" });
   const [metaSaving, setMetaSaving] = useState(false);
+  const [metaSaveError, setMetaSaveError] = useState("");
   const [metaEmpresaFiltro, setMetaEmpresaFiltro] = useState("todos");
   const [metaPeriodoFiltro, setMetaPeriodoFiltro] = useState("todos");
 
@@ -436,13 +437,13 @@ export default function ComissoesClient({
   async function handleMetaSave() {
     if (!metaForm.vendedorId || !metaForm.periodo || !metaForm.valorMeta) return;
     setMetaSaving(true);
+    setMetaSaveError("");
     try {
       const isEdit = metaDialog?.mode === "edit" && metaDialog.meta;
       const vend = vendedorMap.get(metaForm.vendedorId);
-      // For create: derive empresaId from vendedor map; for edit: use meta's stored empresaId
       const empresaId = vend?.empresaId ?? (isEdit ? metaDialog!.meta!.empresaId : null);
       if (!isEdit && !empresaId) {
-        // Vendedor not found — shouldn't happen, but guard anyway
+        setMetaSaveError("Vendedor sem empresa vinculada. Edite o vendedor e defina a empresa.");
         return;
       }
       const body = {
@@ -458,17 +459,21 @@ export default function ComissoesClient({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(isEdit ? { valorMeta: Number(metaForm.valorMeta) } : body),
       });
-      if (res.ok) {
-        const json = (await res.json()) as { data?: MetaVendedorRow };
-        if (json.data) {
-          setMetasVend((prev) => {
-            const idx = prev.findIndex((m) => m.id === json.data!.id);
-            if (idx >= 0) return prev.map((m) => m.id === json.data!.id ? json.data! : m);
-            return [...prev, json.data!];
-          });
-        }
-        setMetaDialog(null);
+      const json = (await res.json()) as { data?: MetaVendedorRow; error?: string };
+      if (!res.ok) {
+        setMetaSaveError(json.error ?? "Erro ao salvar meta.");
+        return;
       }
+      if (json.data) {
+        setMetasVend((prev) => {
+          const idx = prev.findIndex((m) => m.id === json.data!.id);
+          if (idx >= 0) return prev.map((m) => m.id === json.data!.id ? json.data! : m);
+          return [...prev, json.data!];
+        });
+      }
+      setMetaDialog(null);
+    } catch {
+      setMetaSaveError("Erro de conexão. Tente novamente.");
     } finally {
       setMetaSaving(false);
     }
@@ -1355,10 +1360,16 @@ export default function ComissoesClient({
                 />
               </div>
 
+              {metaSaveError && (
+                <p className="text-xs text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+                  {metaSaveError}
+                </p>
+              )}
+
               <div className="flex gap-3 pt-1">
                 <button
                   type="button"
-                  onClick={() => setMetaDialog(null)}
+                  onClick={() => { setMetaDialog(null); setMetaSaveError(""); }}
                   className="flex-1 px-4 py-2 rounded-lg border border-[var(--color-border)] text-sm font-medium text-[var(--color-mk-gray-dark)] hover:bg-[var(--color-muted)] transition-colors"
                 >
                   Cancelar
